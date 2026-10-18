@@ -2,13 +2,21 @@ console.log("Finance Tracker started");
 const budget = 500;
 let totalExpenses = 0;
 
-const expenseTitle = "Groceries";
-const expenseAmount = 45;
+function formatExpense(title, amount, currency = "€") {
+  return `${title} - ${amount} ${currency}`;
+}
 
-totalExpenses += expenseAmount;
+function addExpense(title, amount) {
+  console.log(formatExpense(title, amount));
+  totalExpenses += amount;
+}
+
+addExpense("Groceries", 45);
+addExpense("Transport", 50);
+addExpense("Coffee", 5);
 
 const remaining = budget - totalExpenses;
-console.log(`${expenseTitle} - ${expenseAmount} €`);
+
 console.log(
-  `spent: ${totalExpenses} € of ${budget} € | remaining: ${remaining} €`,
+  `Spent: ${totalExpenses} € of ${budget} € | remaining : ${remaining} €`,
 );
